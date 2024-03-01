@@ -13,6 +13,10 @@ alembic = "^1.13.1"
 uvicorn = "^0.27.1"
 psycopg2-binary = "^2.9.9"
 email-validator = "^2.1.1"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.9"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+libgravatar = "^1.0.4"
 
 
 [build-system]

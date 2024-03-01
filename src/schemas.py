@@ -19,3 +19,32 @@ class ContactResponse(ContactModel):
 
     class Config:
         from_attributes = True
+
+
+class UserModel(BaseModel):
+    username: str 
+    email: EmailStr
+    password: str = Field(min_length=6, max_length=8)
+
+
+class UserDb(BaseModel):
+    id: int
+    username: str
+    email: EmailStr
+    created_at: datetime
+    updated_at: datetime
+    avatar: str
+
+    class Config:
+        orm_mode = True
+
+
+class UserResponse(BaseModel):
+    user: UserDb
+    detail: str = 'User successfully created'
+
+
+class TokenModel(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str = 'bearer'
