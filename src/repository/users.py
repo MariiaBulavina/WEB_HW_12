@@ -10,12 +10,15 @@ async def get_user_by_email(email: str, db: Session) -> User:
 
 
 async def create_user(body: UserModel, db: Session) -> User:
+
     avatar = None
+
     try:
         g = Gravatar(body.email)
         avatar = g.get_image()
     except Exception as e:
         print(e)
+        
     new_user = User(**body.model_dump(), avatar=avatar)
     db.add(new_user)
     db.commit()

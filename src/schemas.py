@@ -16,6 +16,7 @@ class ContactResponse(ContactModel):
 
     id: int
     created_at: datetime
+    updated_at: datetime
 
     class Config:
         from_attributes = True
@@ -36,7 +37,7 @@ class UserDb(BaseModel):
     avatar: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserResponse(BaseModel):
